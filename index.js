@@ -7,7 +7,9 @@
 const express=require("./lib/IExpress.js");
 const app=express();
 
-app.get('/user', function(req, res, next) {
+app.get('/user',function(req, res, next){
+    console.log("多句柄路由");
+}, function(req, res, next) {
     res.end('二逼用户');
 });
 
