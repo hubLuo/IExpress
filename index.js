@@ -10,11 +10,14 @@ const app=express();
 app.get(
     '/user',
     function(req, res, next) {
+        //使用user 和user?测试
         if (req.url.length % 2 === 0) next('route');
         else next();
     },
     function(req, res, next) {
         console.log('普通用户')
+        //next("route");
+        //console.log('普通用户2')
         res.end('普通用户');
     }
 );
