@@ -7,6 +7,11 @@
 const express=require("./lib/IExpress.js");
 const app=express();
 
+app.use('/user', (req, res, next) => {
+    console.log('请小心，进入了用户领域');
+    next();
+});
+
 app.get(
     '/user',
     function(req, res, next) {
