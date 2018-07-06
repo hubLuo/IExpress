@@ -12,6 +12,18 @@ app.use('/user', (req, res, next) => {
     next();
 });
 
+app
+    .route('/test')
+    .get(function(req, res, next) {
+        res.end('get请求');
+    })
+    .post(function(req, res, next) {
+        res.end('post请求');
+    })
+    .put(function(req, res, next) {
+        res.end('put请求');
+    });
+
 app.get(
     '/user',
     function(req, res, next) {
