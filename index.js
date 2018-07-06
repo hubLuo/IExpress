@@ -39,6 +39,11 @@ app.get(
     }
 );
 
+const book = require('./book');
+
+// function(req, res, next) {}
+app.use('/book', book);
+
 app.get('/user', function(req, res, next) {
     console.log('二逼用户')
     res.end('二逼用户');
