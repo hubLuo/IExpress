@@ -7,9 +7,20 @@
 const express=require("./lib/IExpress.js");
 const app=express();
 
-app.get('/user',function(req, res, next){
-    console.log("多句柄路由");
-}, function(req, res, next) {
+app.get(
+    '/user',
+    function(req, res, next) {
+        if (req.url.length % 2 === 0) next('route');
+        else next();
+    },
+    function(req, res, next) {
+        console.log('普通用户')
+        res.end('普通用户');
+    }
+);
+
+app.get('/user', function(req, res, next) {
+    console.log('二逼用户')
     res.end('二逼用户');
 });
 
